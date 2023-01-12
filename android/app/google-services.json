@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "147359849589",
+    "project_id": "eqlsocial-a647a",
+    "storage_bucket": "eqlsocial-a647a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:147359849589:android:c4a3e6fa88260e5272ec3c",
+        "android_client_info": {
+          "package_name": "com.example.eqqlsocial"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "147359849589-ttm6dglrco71sf5rnc6ek5suvk81q1o5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.eqqlsocial",
+            "certificate_hash": "ef17d8a24d20513de4d87c6df27c3c2a5debce41"
+          }
+        },
+        {
+          "client_id": "147359849589-nj10q2bv8t2on5hhrt1t7k4cca153rti.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAEawUrsB2c59yv4reiHuwDfBpbDXcJYM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "147359849589-nj10q2bv8t2on5hhrt1t7k4cca153rti.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
