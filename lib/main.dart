@@ -1,8 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:eqqlsocial/Responsive/mobile_screen_layout.dart';
 import 'package:eqqlsocial/Responsive/responsive_layout.dart';
 import 'package:eqqlsocial/Responsive/web_screen_layout.dart';
 import 'package:eqqlsocial/providers/user_provider.dart';
+import 'package:eqqlsocial/routing/routes.dart';
+import 'package:eqqlsocial/screens/FeedScreen/feedposthelper.dart';
 import 'package:eqqlsocial/screens/LoginPage/loginpage.dart';
+import 'package:eqqlsocial/screens/ProfilePage/profilepagehelper.dart';
 import 'package:eqqlsocial/utils/colors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -44,6 +48,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => UserProvider(),),
         ChangeNotifierProvider(create: (_) => phoneauthenticationwidget(),),
+        ChangeNotifierProvider(create: (_) => profilepagehelper())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -51,7 +56,11 @@ class MyApp extends StatelessWidget {
         theme: ThemeData.dark().copyWith(
           scaffoldBackgroundColor: mobileBackgroundColor,
         ),
-        home: SplashScreen() /*StreamBuilder(
+      /*  routerDelegate: AppRouter().router.routerDelegate,
+        routeInformationParser: AppRouter().router.routeInformationParser,
+        routeInformationProvider: AppRouter().router.routeInformationProvider,*/
+
+        home: SplashScreen() ,/*StreamBuilder(
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.active) {
@@ -78,7 +87,7 @@ class MyApp extends StatelessWidget {
 
             return const LoginScreen();
           },
-        ),*/
+        )*/
       ),
     );
   }

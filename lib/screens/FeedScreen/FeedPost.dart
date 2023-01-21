@@ -1,22 +1,16 @@
-import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:eqqlsocial/Resources/firestore_methods.dart';
 import 'package:eqqlsocial/providers/user_provider.dart';
-import 'package:eqqlsocial/screens/HomeScreen/homescreen.dart';
-import 'package:eqqlsocial/screens/ProfilePage/profilescreen.dart';
 import 'package:eqqlsocial/subpages/comments/commentspage.dart';
-import 'package:eqqlsocial/widgets/like_animation.dart';
 import 'package:eqqlsocial/utils/colors.dart';
 import 'package:eqqlsocial/utils/utils.dart';
+import 'package:eqqlsocial/widgets/like_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:eqqlsocial/models/user.dart' as model;
-import 'package:http/http.dart' as http;
-
 import 'package:intl/intl.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:share_plus/share_plus.dart';
+
+import '../HomeScreen/homescreen.dart';
 
 class PostCard extends StatefulWidget {
   final snap;
@@ -39,13 +33,6 @@ class _PostCardState extends State<PostCard> {
     fetchCommentLen();
   }
 
-  @override
-  void dispose(){
-    super.dispose();
-    fetchCommentLen();
-  }
-
-
   fetchCommentLen() async {
     try {
       QuerySnapshot snap = await FirebaseFirestore.instance
@@ -60,7 +47,7 @@ class _PostCardState extends State<PostCard> {
         err.toString(),
       );
     }
-   // setState(() {});
+    setState(() {});
   }
 
   deletePost(String postId) async {
@@ -101,7 +88,7 @@ class _PostCardState extends State<PostCard> {
             child: Row(
               children: <Widget>[
                 CircleAvatar(
-                  radius: 20,
+                  radius: 16,
                   backgroundImage: NetworkImage(
                     widget.snap['profImage'].toString(),
                   ),
@@ -109,29 +96,18 @@ class _PostCardState extends State<PostCard> {
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.only(
-                      left: 12,
+                      left: 8,
                     ),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        GestureDetector(
-                            //todo add alt profile here
-                          onTap: () => Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => ProfileScreen(
-                                uid: widget.snap['uid']
-                              ),
-                            ),
-                          ),
-                       child: Text(
+                        Text(
                           widget.snap['username'].toString(),
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 18.0
                           ),
                         ),
-                        )
                       ],
                     ),
                   ),
@@ -201,7 +177,6 @@ class _PostCardState extends State<PostCard> {
                   child: Image.network(
                     widget.snap['postUrl'].toString(),
                     fit: BoxFit.cover,
-                    filterQuality: FilterQuality.medium,
                   ),
                 ),
                 AnimatedOpacity(
@@ -212,7 +187,7 @@ class _PostCardState extends State<PostCard> {
                     child: const Icon(
                       Icons.favorite,
                       color: Colors.white,
-                      size: 120,
+                      size: 100,
                     ),
                     duration: const Duration(
                       milliseconds: 400,
@@ -270,21 +245,8 @@ class _PostCardState extends State<PostCard> {
                   child: Align(
                     alignment: Alignment.bottomRight,
                     child: IconButton(
-                        icon: const Icon(Icons.bookmark_border), onPressed: () async{
-
-                    }),
-                  )),
-              IconButton(onPressed: ()async{
-                print('button tapped');
-                final uri = Uri.parse( widget.snap['postUrl'].toString());
-                final res = await http.get(uri);
-                final bytes = res.bodyBytes;
-
-                final temp = await getTemporaryDirectory();
-                final path = '${temp.path}/image.jpg';
-                File(path).writeAsBytesSync(bytes);
-                await Share.shareFiles([path],text: 'put caption here');
-              }, icon: Icon(Icons.share))
+                        icon: const Icon(Icons.bookmark_border), onPressed: () {}),
+                  ))
             ],
           ),
           //DESCRIPTION AND NUMBER OF COMMENTS
@@ -298,7 +260,7 @@ class _PostCardState extends State<PostCard> {
                     style: Theme.of(context)
                         .textTheme
                         .subtitle2!
-                        .copyWith(fontWeight: FontWeight.w800,fontSize: 18),
+                        .copyWith(fontWeight: FontWeight.w800),
                     child: Text(
                       '${widget.snap['likes'].length} likes',
                       style: Theme.of(context).textTheme.bodyText2,

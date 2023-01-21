@@ -26,7 +26,7 @@ class _FeedScreenState extends State<FeedScreen> {
             : AppBar(
                 backgroundColor: mobileBackgroundColor,
                 centerTitle: false,
-                title: Text('eql.social',style: TextStyle(
+                title: const Text('ZERO.GS',style: TextStyle(
                   fontSize: 22.0
                 ),),
                 actions: [

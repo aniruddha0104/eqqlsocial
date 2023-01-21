@@ -7,6 +7,43 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:147359849589:android:e82c66ac7a8f092d72ec3c",
+        "android_client_info": {
+          "package_name": "com.ZERO.GS"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "147359849589-pqbkumfuqu5g4hrl19mo22an06c7clsq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ZERO.GS",
+            "certificate_hash": "ef17d8a24d20513de4d87c6df27c3c2a5debce41"
+          }
+        },
+        {
+          "client_id": "147359849589-nj10q2bv8t2on5hhrt1t7k4cca153rti.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAEawUrsB2c59yv4reiHuwDfBpbDXcJYM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "147359849589-nj10q2bv8t2on5hhrt1t7k4cca153rti.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:147359849589:android:c4a3e6fa88260e5272ec3c",
         "android_client_info": {
           "package_name": "com.example.eqqlsocial"
@@ -14,11 +51,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "147359849589-ttm6dglrco71sf5rnc6ek5suvk81q1o5.apps.googleusercontent.com",
+          "client_id": "147359849589-u8b34hdc53g6t4ddd0r9dv0b7ab40opj.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.eqqlsocial",
-            "certificate_hash": "ef17d8a24d20513de4d87c6df27c3c2a5debce41"
+            "certificate_hash": "c8969bf926aa5492350808ae6c953afb297fa5ed"
           }
         },
         {

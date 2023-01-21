@@ -2,12 +2,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:eqqlsocial/Resources/auth_methods.dart';
 import 'package:eqqlsocial/Resources/firestore_methods.dart';
 import 'package:eqqlsocial/screens/LoginPage/loginpage.dart';
+import 'package:eqqlsocial/screens/ProfilePage/profilepagehelper.dart';
 import 'package:eqqlsocial/utils/colors.dart';
 import 'package:eqqlsocial/utils/utils.dart';
 import 'package:eqqlsocial/widgets/followbutton.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
 
 import '../FeedScreen/FeedPost.dart';
 
@@ -107,9 +109,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               mainAxisAlignment:
                               MainAxisAlignment.spaceEvenly,
                               children: [
-                                buildStatColumn(postLen, "posts"),
-                                buildStatColumn(followers, "followers"),
-                                buildStatColumn(following, "following"),
+                                Provider.of<profilepagehelper>(context,listen:false).buildStatColumn(postLen, "posts"),
+                                Provider.of<profilepagehelper>(context,listen:false).buildStatColumn(followers, "followers"),
+                                Provider.of<profilepagehelper>(context,listen:false).buildStatColumn(following, "following"),
                               ],
                             ),
                             Row(
@@ -254,30 +256,5 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-  Column buildStatColumn(int num, String label) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          num.toString(),
-          style: const TextStyle(
-            fontSize: 22,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        Container(
-          margin: const EdgeInsets.only(top: 4),
-          child: Text(
-            label,
-            style: const TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w400,
-              color: Colors.grey,
-            ),
-          ),
-        ),
-      ],
-    );
-  }
+
 }

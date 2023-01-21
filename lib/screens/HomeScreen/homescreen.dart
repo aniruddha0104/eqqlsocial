@@ -1,4 +1,5 @@
 
+import 'package:eqqlsocial/screens/Notifications/notifications.dart';
 import 'package:eqqlsocial/screens/ProfilePage/profilescreen.dart';
 import 'package:eqqlsocial/screens/SearchPage/searchscreen.dart';
 import 'package:eqqlsocial/screens/UploadScreen/uploadscreen.dart';
@@ -16,7 +17,7 @@ List<Widget> homeScreenItems() {
   const FeedScreen(),
   const SearchScreen(),
   const AddPostScreen(),
-  const Text('notifications'),
+  const Notifications(),
   ProfileScreen(
   uid: FirebaseAuth.instance.currentUser!.uid,
   ),
